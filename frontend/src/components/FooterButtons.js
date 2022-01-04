@@ -1,5 +1,5 @@
 import React from 'react'
-import './FooterButtons.css'
+import '../styles/FooterButtons.css'
 import ReplayIcon from '@mui/icons-material/Replay';
 import CancelIcon from '@mui/icons-material/Cancel';
 import StarIcon from '@mui/icons-material/Star';

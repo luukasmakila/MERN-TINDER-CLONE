@@ -1,5 +1,5 @@
 import React from 'react'
-import './Header.css'
+import '../styles/Header.css'
 import PersonIcon from '@mui/icons-material/Person'
 import ChatIcon from '@mui/icons-material/Chat'
 import { IconButton } from '@mui/material'

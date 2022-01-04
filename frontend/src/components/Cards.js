@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import './Cards.css'
+import '../styles/Cards.css'
 import TinderCard from 'react-tinder-card'
 import axios from '../axios'
 
@@ -13,6 +13,8 @@ const Cards = () => {
     }
     getData()
   }, [])
+
+  console.log(people)
 
   const swiped = (direction, personToDelete) => {
     console.log('removing: ' + personToDelete)
