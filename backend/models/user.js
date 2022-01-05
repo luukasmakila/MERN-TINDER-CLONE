@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
+const JWT = require('jsonwebtoken')
+require('dotenv').config()
 
 const userSchema = mongoose.Schema({
   email: String,
@@ -20,5 +22,9 @@ userSchema.pre('save', async function(next) {
 
 userSchema.methods.checkPassword = async function(password) {
   return await bcrypt.compare(password, this.password) //<-- Users saved password hashed
+}
+
+userSchema.methods.getToken = function() { //"this" refers to the object we are calling the function on
+  return JWT.sign({id: this._id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRES})
 }
 module.exports = mongoose.model('User', userSchema)

@@ -13,7 +13,7 @@ const sign_up = async (request, response, next) => {
 
   try {
     await user.save()
-    response.status(201).json({success: true, user})
+    sendToken(user, 201, response)
   } catch (error) {
     response.status(500).json({success: false, error: error.message})
   }
@@ -37,10 +37,15 @@ const login = async (request, response, next) => {
       response.status(404).json({success: false, error: 'Invalid credentials'})
     }
 
-    response.status(200).json({success: true, token: 'd243adfgf96df2ehf'})
+    sendToken(user, 200, response)
   } catch (error) {
     response.status(500).json({success: false, error: error.message})
   }
+}
+
+const sendToken = (user, statusCode, response) => {
+  const token = user.getToken()
+  response.status(statusCode).json({success: true, token})
 }
 
 module.exports = {

@@ -4,7 +4,7 @@ Content-Type: application/json
 {
   "email": "luukas.makila@koulmbus.fi",
   "password": "12345",
-  "name": "Luukas",
-  "imgUrl": "testetstest",
-  "bio": "hi im luukas"
+  "name": "Harvey2",
+  "imgUrl": "https://pbs.twimg.com/profile_images/720270636434763777/dB0QdPId_400x400.jpg",
+  "bio": "Best closer in the city"
 }
