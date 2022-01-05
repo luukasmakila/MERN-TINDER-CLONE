@@ -8,7 +8,7 @@ const Users = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const request = await axios.get('/api/users')
+      const request = await axios.get('/api/private/users')
       setPeople(request.data)
     }
     getData()
