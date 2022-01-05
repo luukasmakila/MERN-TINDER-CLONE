@@ -2,6 +2,7 @@ const User = require('../models/user')
 
 const sign_up = async (request, response, next) => {
   const body = request.body
+  console.log(body)
 
   const user = new User({
     email: body.email,
