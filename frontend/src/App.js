@@ -1,13 +1,13 @@
 import React from "react"
 import Header from "./components/Header"
-import Cards from "./components/Cards"
+import Users from "./components/Users"
 import FooterButtons from "./components/FooterButtons"
 
 const App = () => {
   return (
     <div className="app">
       <Header/>
-      <Cards/>
+      <Users/>
       <FooterButtons/>
     </div>
   )

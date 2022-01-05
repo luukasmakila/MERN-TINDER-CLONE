@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import '../styles/Cards.css'
+import '../styles/Users.css'
 import TinderCard from 'react-tinder-card'
 import axios from '../axios'
 
-const Cards = () => {
+const Users = () => {
   const [people, setPeople] = useState([])
 
   useEffect(() => {
     const getData = async () => {
-      const request = await axios.get('/cards')
+      const request = await axios.get('/users')
       setPeople(request.data)
     }
     getData()
@@ -49,4 +49,4 @@ const Cards = () => {
   )
 }
 
-export default Cards
+export default Users

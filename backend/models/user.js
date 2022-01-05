@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-const cardSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
   name: String,
   imgUrl: String,
   bio: String
 })
 
-module.exports = mongoose.model('Cards', cardSchema)
+module.exports = mongoose.model('Users', userSchema)

@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
-const Cards = require('./models/dbCards')
+const userRouter = require('./controllers/users')
 const cors = require('cors')
 
 //APP CONFIG
@@ -21,35 +21,9 @@ mongoose.connect(MONGO_URL)
   })
   .catch(error => {
     console.log('failed to connect to the db')
-  })
-
-//API ENDPOINTS
-app.get('/', (request, response) => {
-  response.status(200).send('Hello world')
 })
 
-app.post('/cards', (request, response) => {
-  const cards = request.body
-  console.log(cards)
-
-  Cards.create(cards, (error, data) => {
-    if (error) {
-      response.status(500).send(error)
-    } else {
-      response.status(201).send(data)
-    }
-  })
-})
-
-app.get('/cards', (request, response) => {
-  Cards.find((error, data) => {
-    if (error) {
-      response.status(500).send(error)
-    } else {
-      response.status(200).send(data)
-    }
-  })
-})
+app.use('/users', userRouter)
 
 //LISTENER
 app.listen(PORT, () => {

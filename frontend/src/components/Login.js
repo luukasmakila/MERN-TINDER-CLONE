@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AddUser = () => {
+const Login = () => {
   return (
     <form action="" method="get" class="form-example">
       <div class="form-example">
@@ -22,4 +22,4 @@ const AddUser = () => {
   )
 }
 
-export default AddUser
+export default Login
