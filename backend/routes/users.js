@@ -2,7 +2,6 @@ const userRouter = require('express').Router()
 const Users = require('../models/user')
 
 //API ENDPOINTS FOR USERS
-
 userRouter.post('/', async (request, response) => {
   const body = request.body
   console.log(body)

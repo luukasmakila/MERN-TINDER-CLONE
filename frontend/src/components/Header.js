@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 const Header = () => {
   return (
     <div className='header'>
-      <Link to='/add-user'>
+      <Link to='/profile'>
         <IconButton>
           <PersonIcon fontSize='large' className='header_icon'/>
         </IconButton>

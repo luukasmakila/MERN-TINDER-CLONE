@@ -1,7 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
-const userRouter = require('./controllers/users')
+const userRouter = require('./routes/users')
+const authRouter = require('./routes/auth')
 const cors = require('cors')
 
 //APP CONFIG
@@ -23,7 +24,8 @@ mongoose.connect(MONGO_URL)
     console.log('failed to connect to the db')
 })
 
-app.use('/users', userRouter)
+app.use('/api/users', userRouter)
+app.use('/api/auth', authRouter)
 
 //LISTENER
 app.listen(PORT, () => {
