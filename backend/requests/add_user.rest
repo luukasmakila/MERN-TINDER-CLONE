@@ -1,8 +1,0 @@
-POST http://localhost:3001/users
-Content-Type: application/json
-
-{
-  "name": "Test",
-  "imgUrl": "https://pbs.twimg.com/profile_images/1362182681761435651/S0U6WtOK_400x400.jpg",
-  "bio": "Best closer in the city"
-}

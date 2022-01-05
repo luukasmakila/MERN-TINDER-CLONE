@@ -1,1 +1,10 @@
-POST http://localhost:3001/api/auth/login
+POST http://localhost:3001/api/auth/sign_up
+Content-Type: application/json
+
+{
+  "email": "luukas.makila@koulmbus.fi",
+  "password": "12345",
+  "name": "Luukas",
+  "imgUrl": "testetstest",
+  "bio": "hi im luukas"
+}
