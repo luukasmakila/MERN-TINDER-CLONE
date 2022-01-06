@@ -26,4 +26,5 @@ WHAT DID I LEARN:: </br>
    How to connect your frontend to the backend </br>
    
 COMING </br>
--Adding buttons
+-Adding like and dislike buttons
+-Adding a chat feature
