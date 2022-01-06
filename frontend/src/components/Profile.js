@@ -75,7 +75,7 @@ const Person = () => {
           Save changes
         </button>
       </form>
-      <h2>{person.name}</h2>
+      <h2>Logged in as: {person.name}</h2>
       <img 
         className='profile-picture'
         src={person.imgUrl}
