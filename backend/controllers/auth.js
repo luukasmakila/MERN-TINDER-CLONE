@@ -30,12 +30,14 @@ const login = async (request, response, next) => {
   try {
     const user = await User.findOne({ email }).select('+password') //<-- password refers to the "this.password"
     if (!user) {
-      response.status(404).json({success: false, error: 'Invalid credentials'})
+      console.log('no users with that email')
+      return response.status(404).json({success: false, error: 'Invalid credentials'})
     }
+    
     const passwordsMatch = await user.checkPassword(password)
-
     if(!passwordsMatch) {
-      response.status(404).json({success: false, error: 'Invalid credentials'})
+      console.log('passwords do not match')
+      return response.status(404).json({success: false, error: 'Invalid credentials'})
     }
 
     sendToken(user, 200, response)

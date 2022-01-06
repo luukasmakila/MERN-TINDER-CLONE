@@ -56,13 +56,3 @@ body {
   text-align: center;
   margin: 0.5rem 0;
 }
-
-.success-message {
-  width: 100%;
-  display: inline-block;
-  padding: 5px;
-  background: green;
-  color: #fff;
-  text-align: center;
-  margin: 0.5rem 0;
-}

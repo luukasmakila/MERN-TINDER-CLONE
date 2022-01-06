@@ -7,7 +7,7 @@ const Login = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [success, setSuccess] = useState(false)
-  //create error message state
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
@@ -17,7 +17,6 @@ const Login = ({ history }) => {
 
   const loginHandler = async (e) => {
     e.preventDefault()
-
     const config = {
       header: {
         "Content-Type": "application/json",
@@ -25,7 +24,7 @@ const Login = ({ history }) => {
     }
 
     try {
-      const { data } = await axios.post(
+      const {data} = await axios.post(
         "/api/auth/login",
         { email, password },
         config
@@ -35,7 +34,12 @@ const Login = ({ history }) => {
       setSuccess(true)
       
     } catch (error) {
-      //write error message flashing
+      console.log(error.response.data.error)
+      setError(error.response.data.error)
+      setSuccess(false)
+      setTimeout(() => {
+        setError('')
+      }, 5000)
     }
   }
 
@@ -46,6 +50,7 @@ const Login = ({ history }) => {
   return (
     <div className="login-screen">
       <form onSubmit={loginHandler} className="login-screen__form">
+        {error && <span className="error-message">{error}</span>}
         <h3 className="login-screen__title">Login</h3>
         <div className="form-group">
           <label htmlFor="email">Email:</label>

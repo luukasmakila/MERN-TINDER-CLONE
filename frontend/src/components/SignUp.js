@@ -11,7 +11,7 @@ const SignUp = () => {
   const [imgUrl, setImgUrl] = useState('')
   const [bio, setBio] = useState('')
   const [success, setSuccess] = useState(false)
-  //create error handling
+  const [error, setError] = useState('')
 
   const registerHandler = async (e) => {
     e.preventDefault()
@@ -20,11 +20,15 @@ const SignUp = () => {
       header: {
         "Content-Type": "application/json",
       },
-    };
+    }
 
     if (password !== confirmpassword) {
       setPassword('')
       setConfirmPassword('')
+      setTimeout(() => {
+        setError('')
+      }, 5000)
+      return setError('Passwords are not the same')
     }
 
     try {
@@ -42,10 +46,12 @@ const SignUp = () => {
       localStorage.setItem('userId', data.id)
       localStorage.setItem('authToken', data.token)
       setSuccess(true)
-
     } catch (error) {
-      console.log(error)
+      setError(error.response.data.error)
       setSuccess(false)
+      setTimeout(() => {
+        setError('')
+      }, 5000)
     }
   }
 
@@ -56,6 +62,7 @@ const SignUp = () => {
   return (
     <div className="register-screen">
       <form onSubmit={registerHandler} className="register-screen__form">
+        {error && <span className="error-message">{error}</span>}
         <h3 className="register-screen__title">Sign Up</h3>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
