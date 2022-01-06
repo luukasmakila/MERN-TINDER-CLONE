@@ -2,14 +2,14 @@
 
 -Created a Tinder like app with React.js, Express.js, Node.js and MongoDB </br>
 
--Users can: </br>
+USERS CAN: </br>
    Create a new user </br>
    Login / logout (accessing the main features requires a valid JWT) </br>
    Set up their profile (name, profile picture, bio) </br>
    Change their profile info </br>
    Swipe other profiles left or right </br>
 
--What did i learn: </br>
+WHAT DID I LEARN:: </br>
    How to handle different types of requests to your API </br>
    How to handle errors </br>
    How to connect your backend to a database </br>
