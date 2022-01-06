@@ -2,8 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from '../axios'
 import {Navigate, Link} from 'react-router-dom'
 
-const Profile = () => {
-  const [success, setSuccess] = useState(false)
+const Person = () => {
   const [person, setPerson] = useState('')
 
   useEffect(() => {
@@ -15,16 +14,6 @@ const Profile = () => {
     getData()
   }, [])
 
-  const handleLogout = () => {
-    localStorage.removeItem('authToken')
-    localStorage.removeItem('userId')
-    setSuccess(true)
-  }
-
-  if(success) {
-    return <Navigate to='/'/>
-  }
-
   return (
     <div>
       <h2>{person.name}</h2>
@@ -34,6 +23,31 @@ const Profile = () => {
         alt=''
       />
       <h4>{person.bio}</h4>
+    </div>
+  )
+}
+
+const Profile = () => {
+  const [logout, setLogout] = useState(false)
+  if(!localStorage.getItem('authToken')) {
+    return (
+      <Navigate to='/login'/>
+    )
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken')
+    localStorage.removeItem('userId')
+    setLogout(true)
+  }
+
+  if(logout) {
+    return <Navigate to='/'/>
+  }
+
+  return (
+    <div>
+      <Person />
       <Link to='/'><button>Back</button></Link>
       <button onClick={handleLogout}>Logout</button>
     </div>

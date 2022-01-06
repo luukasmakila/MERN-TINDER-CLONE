@@ -4,10 +4,10 @@ require('dotenv').config()
 
 const protect = async (request, response, next) => {
   let token
-  console.log(request.authorization)
+  console.log(request.headers.authorization)
 
   if (request.headers.authorization && request.headers.authorization.startsWith('Bearer')) {
-    //Bearer s84g20fhgdfs80ty67gs31bo1
+    //Token looks like -> Bearer s84g20fhgdfs80ty67gs31bo1
     token = request.headers.authorization.split(' ')[1]
   }
 

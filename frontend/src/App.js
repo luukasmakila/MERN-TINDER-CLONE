@@ -10,15 +10,13 @@ const App = () => {
       <Navigate to='/login'/>
     )
   }
-  else {
-    return (
-      <div className="app">
-        <Header/>
-        <Users/>
-        <FooterButtons/>
-      </div>
-    )
-  }
+  return (
+    <div className="app">
+      <Header/>
+      <Users/>
+      <FooterButtons/>
+    </div>
+  )
 }
 
 export default App
