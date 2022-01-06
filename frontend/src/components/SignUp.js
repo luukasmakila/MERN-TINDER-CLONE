@@ -3,15 +3,15 @@ import axios from "../axios";
 import { Link, Navigate } from "react-router-dom";
 import "../styles/SignUp.css";
 
-const SignUp = ({ History }) => {
+const SignUp = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmpassword, setConfirmPassword] = useState('')
   const [name, setName] = useState('')
   const [imgUrl, setImgUrl] = useState('')
   const [bio, setBio] = useState('')
-  const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
+  //create error handling
 
   const registerHandler = async (e) => {
     e.preventDefault()
@@ -25,10 +25,6 @@ const SignUp = ({ History }) => {
     if (password !== confirmpassword) {
       setPassword('')
       setConfirmPassword('')
-      setTimeout(() => {
-        setError('')
-      }, 5000);
-      return setError("Passwords do not match")
     }
 
     try {
@@ -49,11 +45,7 @@ const SignUp = ({ History }) => {
 
     } catch (error) {
       console.log(error)
-      setError(error.response.data.error)
       setSuccess(false)
-      setTimeout(() => {
-        setError("")
-      }, 5000)
     }
   }
 
@@ -65,7 +57,6 @@ const SignUp = ({ History }) => {
     <div className="register-screen">
       <form onSubmit={registerHandler} className="register-screen__form">
         <h3 className="register-screen__title">Sign Up</h3>
-        {error && <span className="error-message">{error}</span>}
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
@@ -138,7 +129,6 @@ const SignUp = ({ History }) => {
         <button type="submit" className="btn btn-primary">
           Sign Up
         </button>
-
         <span className="register-screen__subtext">
           Already have an account? <Link to="/login">Login</Link>
         </span>

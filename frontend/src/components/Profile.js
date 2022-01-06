@@ -4,6 +4,9 @@ import {Navigate, Link} from 'react-router-dom'
 
 const Person = () => {
   const [person, setPerson] = useState('')
+  const [name, setName] = useState('')
+  const [image, setImage] = useState('')
+  const [bio, setBio] = useState('')
 
   useEffect(() => {
     const getData = async () => {
@@ -14,8 +17,54 @@ const Person = () => {
     getData()
   }, [])
 
+  const handleProfileChange = () => {
+    console.log('hi')
+  }
+
   return (
-    <div>
+    <div className='profile-page'>
+      <form className='profile-page-form'>
+        <h3>Edit profile</h3>
+        <div>
+          <label htmlFor='name'>Change name: </label>
+          <input 
+            type="name"
+            required
+            id="name"
+            placeholder="Enter name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            tabIndex={1}
+          />
+        </div>
+        <div>
+          <label htmlFor='image'>Change image: </label>
+          <input 
+            type="text"
+            required
+            id="text"
+            placeholder="Enter image URL"
+            onChange={(e) => setImage(e.target.value)}
+            value={image}
+            tabIndex={1}
+          />
+        </div>
+        <div>
+          <label htmlFor='bio'>Change bio: </label>
+          <input 
+            type="bio"
+            required
+            id="bio"
+            placeholder="Enter bio"
+            onChange={(e) => setBio(e.target.value)}
+            value={bio}
+            tabIndex={1}
+          />
+        </div>
+      </form>
+      <button type="submit" className="submit-changes">
+          Save changes
+        </button>
       <h2>{person.name}</h2>
       <img 
         className='profile-picture'
@@ -46,7 +95,7 @@ const Profile = () => {
   }
 
   return (
-    <div>
+    <div className='profile_screen'>
       <Person />
       <Link to='/'><button>Back</button></Link>
       <button onClick={handleLogout}>Logout</button>

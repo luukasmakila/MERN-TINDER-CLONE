@@ -6,8 +6,8 @@ import "../styles/Login.css"
 const Login = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
+  //create error message state
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
@@ -35,10 +35,7 @@ const Login = ({ history }) => {
       setSuccess(true)
       
     } catch (error) {
-      setError(error.response.data.error);
-      setTimeout(() => {
-        setError("")
-      }, 5000);
+      //write error message flashing
     }
   }
 
@@ -50,7 +47,6 @@ const Login = ({ history }) => {
     <div className="login-screen">
       <form onSubmit={loginHandler} className="login-screen__form">
         <h3 className="login-screen__title">Login</h3>
-        {error && <span className="error-message">{error}</span>}
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
@@ -81,7 +77,6 @@ const Login = ({ history }) => {
         <button type="submit" className="btn btn-primary">
           Login
         </button>
-
         <span className="login-screen__subtext">
           Don't have an account? <Link to="/sign_up">Sign Up</Link>
         </span>
