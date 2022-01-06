@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Profile from './components/Profile'
+import Chat from './components/Chat'
 
 ReactDOM.render(
   <Router>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Route path='/login' element={<Login/>}/>
       <Route path='/sign_up' element={<SignUp/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      <Route path='/chat' element={<Chat/>}/>
     </Routes>
   </Router>,
   document.getElementById('root')

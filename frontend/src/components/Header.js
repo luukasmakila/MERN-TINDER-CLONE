@@ -14,14 +14,18 @@ const Header = () => {
           <PersonIcon fontSize='large' className='header_icon'/>
         </IconButton>
       </Link>
-      <img 
-        className='header_logo'
-        src='https://www.logo.wine/a/logo/Tinder_(app)/Tinder_(app)-Flame-Logo.wine.svg'
-        alt=''
-      />
-      <IconButton>
-        <ChatIcon fontSize='large' className='header_icon'/>
-      </IconButton>
+      <Link to='/'>
+        <img 
+          className='header_logo'
+          src='https://www.logo.wine/a/logo/Tinder_(app)/Tinder_(app)-Flame-Logo.wine.svg'
+          alt=''
+        />
+      </Link>
+      <Link to='/chat'>
+        <IconButton>
+          <ChatIcon fontSize='large' className='header_icon'/>
+        </IconButton>
+      </Link>
     </div>
   )
 }

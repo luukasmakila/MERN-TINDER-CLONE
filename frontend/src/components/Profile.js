@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
 import {Navigate, Link} from 'react-router-dom'
+import Header from './Header'
 
 const Person = () => {
   const [person, setPerson] = useState('')
@@ -31,6 +32,7 @@ const Person = () => {
 
   return (
     <div className='profile-page'>
+      <Header/>
       <form className='profile-page-form' onSubmit={handleProfileChange}>
         <h3>Edit profile</h3>
         <div>
