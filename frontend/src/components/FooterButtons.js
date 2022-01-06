@@ -5,16 +5,16 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import StarIcon from '@mui/icons-material/Star';
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FlashOnIcon from '@mui/icons-material/FlashOn'
-import { IconButton } from '@mui/material';
+import { IconButton } from '@mui/material'
 
 const FooterButtons = () => {
   return (
     <div className='footerButtons'>
-      <IconButton className='replay_icon'>
-        <ReplayIcon fontSize='large'/>
-      </IconButton>
       <IconButton className='cancel_icon'>
         <CancelIcon fontSize='large'/>
+      </IconButton>
+      <IconButton className='replay_icon'>
+        <ReplayIcon fontSize='large'/>
       </IconButton>
       <IconButton className='star_icon'>
         <StarIcon fontSize='large'/>

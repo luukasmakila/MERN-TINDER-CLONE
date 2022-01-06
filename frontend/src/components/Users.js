@@ -15,14 +15,13 @@ const Users = () => {
     getData()
   }, [])
 
-  console.log(people)
 
   const swiped = (direction, personToDelete) => {
-    console.log('removing: ' + personToDelete)
+    console.log('swiped ' + direction)
   }
 
   const outOfFrame = (name) => {
-    console.log(name + 'left the frame')
+    console.log(`${name} left the screen!`)
   }
 
   return (

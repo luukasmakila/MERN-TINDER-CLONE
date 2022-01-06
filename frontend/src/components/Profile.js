@@ -17,13 +17,21 @@ const Person = () => {
     getData()
   }, [])
 
-  const handleProfileChange = () => {
-    console.log('hi')
+  const handleProfileChange = async () => {
+    const newProfile = {
+      name: name,
+      imgUrl: image,
+      bio: bio
+    }
+
+    const token = localStorage.getItem('authToken')
+    const request = await axios.put('/api/private/user', newProfile, {headers: {'authorization' : `Bearer ${token}`}})
+    setPerson(request.data)
   }
 
   return (
     <div className='profile-page'>
-      <form className='profile-page-form'>
+      <form className='profile-page-form' onSubmit={handleProfileChange}>
         <h3>Edit profile</h3>
         <div>
           <label htmlFor='name'>Change name: </label>
@@ -61,10 +69,10 @@ const Person = () => {
             tabIndex={1}
           />
         </div>
-      </form>
-      <button type="submit" className="submit-changes">
+        <button type="submit" className="submit-changes">
           Save changes
         </button>
+      </form>
       <h2>{person.name}</h2>
       <img 
         className='profile-picture'
