@@ -30,8 +30,8 @@ const Login = ({ history }) => {
         { email, password },
         config
       )
-
-      localStorage.setItem("authToken", data.token)
+      localStorage.setItem('userId', data.id)
+      localStorage.setItem('authToken', data.token)
       setSuccess(true)
       
     } catch (error) {

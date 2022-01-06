@@ -1,9 +1,8 @@
 const express = require('express')
 const privateRouter = express.Router()
-const { getPrivate, getUsers } = require('../controllers/private')
-const { protect } = require('../middlewares/auth')
+const { getUser, getUsers } = require('../controllers/private')
 
-//privateRouter.route("/").get(protect, getPrivate)
-privateRouter.route('/users').get(getUsers) //if JWT is not passed the function wont call "Next()"
+privateRouter.route('/users').get(getUsers)
+privateRouter.route('/user').get(getUser)
 
 module.exports = privateRouter

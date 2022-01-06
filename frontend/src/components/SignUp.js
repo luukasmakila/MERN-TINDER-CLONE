@@ -43,6 +43,7 @@ const SignUp = ({ History }) => {
         },
         config
       )
+      localStorage.setItem('userId', data.id)
       localStorage.setItem('authToken', data.token)
       setSuccess(true)
 

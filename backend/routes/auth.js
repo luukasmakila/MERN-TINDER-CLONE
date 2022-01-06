@@ -7,5 +7,4 @@ authRouter.route('/sign_up').post(sign_up)
 
 authRouter.route('/login').post(login)
 
-
 module.exports = authRouter

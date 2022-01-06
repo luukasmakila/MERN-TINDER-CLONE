@@ -46,7 +46,8 @@ const login = async (request, response, next) => {
 
 const sendToken = (user, statusCode, response) => {
   const token = user.getToken()
-  response.status(statusCode).json({success: true, token})
+  const id = user._id.toString()
+  response.status(statusCode).json({success: true, token, id})
 }
 
 module.exports = {
