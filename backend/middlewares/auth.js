@@ -4,6 +4,7 @@ require('dotenv').config()
 
 const protect = async (request, response, next) => {
   let token
+  console.log(request.authorization)
 
   if (request.headers.authorization && request.headers.authorization.startsWith('Bearer')) {
     //Bearer s84g20fhgdfs80ty67gs31bo1
@@ -12,6 +13,7 @@ const protect = async (request, response, next) => {
 
   if (!token) {
     response.status(401).json({success: false, error: 'Access unauthorized'})
+    next()
   }
 
   try {
@@ -20,12 +22,14 @@ const protect = async (request, response, next) => {
 
     if (!user) {
       response.status(404).json({success: false, error: 'No users with this id'})
+      next()
     }
 
     request.user = user //sets current user to the request.user parameter
     next()
   } catch (error) {
     response.status(401).json({success: false, error: 'Unauthorized access'})
+    next()
   }
 }
 

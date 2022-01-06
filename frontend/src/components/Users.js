@@ -8,7 +8,8 @@ const Users = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const request = await axios.get('/api/private/users')
+      const token = localStorage.getItem('authToken')
+      const request = await axios.get('/api/private/users', {headers: {'authorization' : `Bearer ${token}`}})
       setPeople(request.data)
     }
     getData()

@@ -17,6 +17,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('authToken')
+    localStorage.removeItem('userId')
     setSuccess(true)
   }
 
