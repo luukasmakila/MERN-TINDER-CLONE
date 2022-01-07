@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from '../axios'
 import {Navigate, Link} from 'react-router-dom'
 import Header from './Header'
+import '../styles/Profile.css'
 
 const Person = () => {
   const [person, setPerson] = useState('')
@@ -38,7 +39,7 @@ const Person = () => {
         <div>
           <label htmlFor='name'>Change name: </label>
           <input 
-            type="name"
+            type="text"
             required
             id="name"
             placeholder="Enter name"
@@ -62,7 +63,7 @@ const Person = () => {
         <div>
           <label htmlFor='bio'>Change bio: </label>
           <input 
-            type="bio"
+            type="text"
             required
             id="bio"
             placeholder="Enter bio"
@@ -107,8 +108,8 @@ const Profile = () => {
   return (
     <div className='profile_screen'>
       <Person />
-      <Link to='/'><button>Back</button></Link>
-      <button onClick={handleLogout}>Logout</button>
+      <Link to='/'><button type='back'>Back</button></Link>
+      <button onClick={handleLogout} type='logout'>Logout</button>
     </div>
   )
 }
