@@ -2,7 +2,7 @@
 
 -Created a Tinder like app with React.js, Express.js, Node.js and MongoDB </br>
 
-<p><img src="https://github.com/luukasmakila/MERN-TINDER-CLONE/blob/master/unknown_2022.01.06-22.00_1.gif"/></p>
+<p><img src="https://github.com/luukasmakila/MERN-TINDER-CLONE/blob/master/unknown_2022.01.07-17.58_1.gif"/></p>
 
 USERS CAN: </br>
    Create a new user </br>
